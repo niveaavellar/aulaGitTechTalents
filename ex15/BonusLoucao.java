@@ -1,99 +1,116 @@
 package exercicios.ex15;
 
-//	MANO! Isso não funciona ç_ç
-//	este código apenas estava tentando transformar oque o usuário digitasse
-//	em uma array de inteiros sem o ; ou seja, era só pra dar uma de excel, texto para colunas
-//	e só depois eu ia organizar com a seguinte ideia:
-//		if(maior<numero){
-//	        maior = numero;
-//	      }
-//	      if(menor>numero){
-//	        menor = numero;
-//	      }
-//	Mas como nem deu pra chegar a isso, deixa quieto *sons de violinos e chuva caindo*
-		
-
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 public class BonusLoucao {
 	
 	public static void main(String[] args) {
+
+
 		Scanner in = new Scanner(System.in);
-		System.out.println("Digite varios números inteiros divididos por vírgula");
-		String entrada = in.next();
-		ArrayList<Character> arrayDeTratamento1;
-		arrayDeTratamento1 = new ArrayList<>();
-		ArrayList<Character> arrayDeTratamento2;
-		arrayDeTratamento2 = new ArrayList<>();
-		ArrayList<Character> arrayVazia;
-		arrayVazia = new ArrayList<>();
-		ArrayList<Integer> arrayFinal;
-		arrayFinal = new ArrayList<>();
-		
-		String a = ";";
-		
-		
-		
-		
-		int contador = 0;
-		
-		for (int i = 0; i < entrada.length(); i++) {
-			if(entrada.charAt(i) == a.charAt(0)) {
-				
-				contador++;
 
-			}
-		}
-				
-		int contador1 = 0;
-		while(contador1<contador) {
+		System.out.println("Digite os números separados por ;");
+
+		String numeros = in.next();
+
 		
-			for (int i = 0; i < entrada.length(); i++) {
-				if(entrada.charAt(i) != a.charAt(0)) {
-					arrayDeTratamento1.add(entrada.charAt(i));
-					
-					
-					
-				}else {
-					for (int j = i; j < entrada.length()-1; j++) {
-						arrayDeTratamento2.add(entrada.charAt(j+1));
-					}
-					break;
+		String[] numerosArray = numeros.split(";");
+
+		List<String> numerosLista = Arrays.asList(numerosArray);
+
+
+		List<Integer> numerosListaInteger = new ArrayList<Integer>();
+
+
+		for (String numeroStr : numerosLista) {
+
+			numerosListaInteger.add(Integer.valueOf(numeroStr));
+
+		}
+
+		in.close();
+		
+		
+		
+		
+		
+		
+//		Minha SuperTentativa que parecia SuperLinda mas falhou miseravelmete
+//
+//		int numeroAuxiliar=numerosListaInteger.get(0);
+//		int resultado[] = new int[numerosListaInteger.size()];
+//		int posicaoNoResultado = 0;
+//		int tamanhoInicial = numerosListaInteger.size();
+//		
+//		while(posicaoNoResultado<tamanhoInicial) {
+//			//dentro deste while, vou tirar item por item da array numerosListaInteger
+//			//até nao sobrar nada!
+//		
+//
+//		//pra pegar o menor número da array
+//		for (int i = 0; i < numerosListaInteger.size(); i++) {
+//			if (numerosListaInteger.get(i)<numeroAuxiliar) {
+//				numeroAuxiliar = numerosListaInteger.get(i);
+//			}
+//		}
+//		//pra excluir o menor numero da array (não quero mais ele)
+//		for (int j = 0; j < numerosListaInteger.size(); j++) {
+//			if (numerosListaInteger.get(j)==numeroAuxiliar) {
+//				numerosListaInteger.remove(numerosListaInteger.get(j));
+//		//não ta excluindo!! porque não??
+//			}
+//		}
+//		//e o tal numero removido, menor da array, vai pra primeira posição no resultado!
+//		resultado[posicaoNoResultado]=numeroAuxiliar;
+//		
+//		posicaoNoResultado++;
+//
+//		
+//		}
+//		
+//		
+//		for(int i=0; i<resultado.length; i++) {
+//			System.out.println(resultado[i]);
+//		}
+		
+		
+		int resultado[] = new int[numerosListaInteger.size()];
+		for(int i =0; i< numerosListaInteger.size(); i++) {
+			resultado[i] = numerosListaInteger.get(i);
+		}
+		
+//		System.out.println(Arrays.toString(resultado));
+		
+		int posicaoMenorNumero = 0;
+		int tamanho = resultado.length;
+		
+		int i = 0;
+		while (i<tamanho) {
+			for (int j = i+1; j < resultado.length; j++) {
+				if(resultado[j] < resultado[posicaoMenorNumero]) {
+					posicaoMenorNumero = j;
 				}
+				
 			}
+			int aux = resultado[i];
+			resultado[i] = resultado[posicaoMenorNumero];
+			resultado[posicaoMenorNumero] = aux;
+			posicaoMenorNumero = i;
 			
-			char arrayListPraArray[]=new char[arrayDeTratamento1.size()];
-			for (int i = 0; i < arrayListPraArray.length; i++) {
-				arrayListPraArray[i]=arrayDeTratamento1.get(i);
-			}
-			String str = new String(arrayListPraArray);
-			
-			int x = Integer.parseInt(str);
-			arrayFinal.add(x);
-			
-			char arrayListPraEntrada[]=new char[arrayDeTratamento2.size()];
-			for (int i = 0; i < arrayListPraEntrada.length; i++) {
-				arrayListPraEntrada[i]=arrayDeTratamento2.get(i);
-			}
-
-			String socorro = new String(arrayListPraEntrada);
-			
-			entrada = socorro;
-			arrayDeTratamento1 = arrayVazia;
-			arrayDeTratamento2 = arrayVazia;
-			
-			
-			contador1++;
+			i++;
 		}
-			
-			
-			
 		
+		
+		System.out.println(Arrays.toString(resultado));
+		
+		//errei tudo -.- 
 
-
-		System.out.println(arrayFinal);
-//		System.out.println(arrayDeTratamento1);
 	}
+
+	
+
 
 }
