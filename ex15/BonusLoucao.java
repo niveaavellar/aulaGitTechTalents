@@ -94,12 +94,14 @@ public class BonusLoucao {
 					posicaoMenorNumero = j;
 				}
 				
-			}
+			
 			int aux = resultado[i];
 			resultado[i] = resultado[posicaoMenorNumero];
 			resultado[posicaoMenorNumero] = aux;
-			posicaoMenorNumero = i;
+			posicaoMenorNumero = j;
+
 			
+			}
 			i++;
 		}
 		
