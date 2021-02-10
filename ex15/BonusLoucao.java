@@ -12,7 +12,7 @@ public class BonusLoucao {
 
 		Scanner in = new Scanner(System.in);
 
-		System.out.println("Digite os números separados por ;");
+		System.out.println("Digite os nÃºmeros separados por ;");
 
 		String numeros = in.next();
 
@@ -47,23 +47,23 @@ public class BonusLoucao {
 //		
 //		while(posicaoNoResultado<tamanhoInicial) {
 //			//dentro deste while, vou tirar item por item da array numerosListaInteger
-//			//até nao sobrar nada!
+//			//atÃ© nao sobrar nada!
 //		
 //
-//		//pra pegar o menor número da array
+//		//pra pegar o menor nÃºmero da array
 //		for (int i = 0; i < numerosListaInteger.size(); i++) {
 //			if (numerosListaInteger.get(i)<numeroAuxiliar) {
 //				numeroAuxiliar = numerosListaInteger.get(i);
 //			}
 //		}
-//		//pra excluir o menor numero da array (não quero mais ele)
+//		//pra excluir o menor numero da array (nÃ£o quero mais ele)
 //		for (int j = 0; j < numerosListaInteger.size(); j++) {
 //			if (numerosListaInteger.get(j)==numeroAuxiliar) {
 //				numerosListaInteger.remove(numerosListaInteger.get(j));
-//		//não ta excluindo!! porque não??
+//		//nÃ£o ta excluindo!! porque nÃ£o??
 //			}
 //		}
-//		//e o tal numero removido, menor da array, vai pra primeira posição no resultado!
+//		//e o tal numero removido, menor da array, vai pra primeira posiÃ§Ã£o no resultado!
 //		resultado[posicaoNoResultado]=numeroAuxiliar;
 //		
 //		posicaoNoResultado++;
@@ -108,7 +108,7 @@ public class BonusLoucao {
 		
 		System.out.println(Arrays.toString(resultado));
 		
-		//errei tudo -.- 
+		
 
 	}
 
