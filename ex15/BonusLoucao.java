@@ -94,21 +94,17 @@ public class BonusLoucao {
 					posicaoMenorNumero = j;
 				}
 				
-			
+			}
 			int aux = resultado[i];
 			resultado[i] = resultado[posicaoMenorNumero];
 			resultado[posicaoMenorNumero] = aux;
-			posicaoMenorNumero = j;
 
-			
-			}
 			i++;
+			posicaoMenorNumero = i;
+			
 		}
-		
-		
+
 		System.out.println(Arrays.toString(resultado));
-		
-		
 
 	}
 
