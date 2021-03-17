@@ -3,6 +3,7 @@ package com.techtalents.youbuy.dto.response;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.techtalents.youbuy.entity.Client;
 import com.techtalents.youbuy.entity.OrderTb;
 
@@ -26,6 +27,7 @@ public class ClientResponse {
 	
 	private String adress;
 	
+	@JsonIgnore //Era isso que faltava, oque gerou o loop na apresentação do "put client"! Com isso, está corrigido!
 	private List<OrderTb> orders = new ArrayList<OrderTb>();
 
 }
